@@ -15,13 +15,12 @@ namespace TestTask.InterLink
             string tempDate;
             string tempHour;
             List<string> hours = new List<string>();
-            // List<string> hours = new List<string>();
             using StreamWriter sw = new StreamWriter(@"C:\Users\semen\Desktop\text2.csv", true);
 
             List<string> names = new List<string>();
             names.Add(" ");
+
             List<string> resultDate = new List<string>();
-            //string resultName = "";
 
             List<List<string>> list = new List<List<string>>();
 
@@ -35,17 +34,8 @@ namespace TestTask.InterLink
             }
             List<string> uniqueDate = resultDate.Distinct().ToList();  
             List<string> uniqueName = names.Distinct().ToList();
-           //for (int i = 1; i < s.Length; i++)
-            //{
-             //   string[] words = s[i].Split(new char[] { ',' });
-                //if (words[0] == uniqueName[i] && words[1] == uniqueDate[i])
-                //{
-
-                //}
-           // }
             sw.Write("Name / Date,");
             uniqueDate.ForEach(sw.Write);
-           // uniqueName.ForEach(sw.WriteLine);
 
             for (int i = 1; i < uniqueName.Count; i++)
             {  
@@ -69,28 +59,7 @@ namespace TestTask.InterLink
                 hours.Insert(0, Environment.NewLine + uniqueName[i] + ",");
                 hours.ForEach(sw.Write);
                 hours.Clear();
-            }
-           // Console.WriteLine(tempHour);
-
-            // hours.ForEach(sw.Write);
-
-
-
-
-
-            //File.WriteAllText(@"C:\Users\semen\Desktop\text.csv", resultDate);
-
-
-            //string[] fields;
-            //using (TextFieldParser tfp = new TextFieldParser(@"C:\Users\semen\Desktop\acme_worksheet.csv"))
-            // {
-            //   tfp.TextFieldType = FieldType.Delimited;
-            // tfp.SetDelimiters(",");
-
-            //while (!tfp.EndOfData)
-            //{
-            // fields = tfp.ReadFields();
-            // }
+            }         
         }
     }
 }
