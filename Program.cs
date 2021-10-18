@@ -21,6 +21,7 @@ namespace TestTask.InterLink
             names.Add(" ");
 
             List<string> resultDate = new List<string>();
+            List<string> resultDate2 = new List<string>();
 
             List<List<string>> list = new List<List<string>>();
 
@@ -29,13 +30,17 @@ namespace TestTask.InterLink
             {
                 string[] words = s[i].Split(new char[] { ',' });
                 names.Add(words[0]);
-                resultDate.Add((words[1]) + ",");  // DateTime.Parse
-                                              
+                resultDate.Add(words[1] + ",");
+                resultDate2.Add(DateTime.Parse(words[1]).ToString());                                             
             }
-            List<string> uniqueDate = resultDate.Distinct().ToList();  
+            List<string> uniqueDate = resultDate.Distinct().ToList();
+            List<string> uniqueDate2 = resultDate2.Distinct().ToList();
             List<string> uniqueName = names.Distinct().ToList();
             sw.Write("Name / Date,");
-            uniqueDate.ForEach(sw.Write);
+            for (int i = 0; i < uniqueDate2.Count; i++)
+            {
+                sw.Write(uniqueDate2[i].Remove(10, 8) + ",");
+            }
 
             for (int i = 1; i < uniqueName.Count; i++)
             {  
